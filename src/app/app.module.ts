@@ -9,13 +9,19 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListCoursComponent } from './list-cours/list-cours.component';
+import { EnseigneUserComponent } from './enseigne-user/enseigne-user.component';
+import { EnseigneCoursComponent } from './enseigne-cours/enseigne-cours.component';
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
     EditUserComponent,
     ListUserComponent,
-    AuthentificationComponent
+    AuthentificationComponent,
+    ListCoursComponent,
+    EnseigneUserComponent,
+    EnseigneCoursComponent
   ],
   imports: [
     BrowserModule,

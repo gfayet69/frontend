@@ -18,11 +18,9 @@
                     Statut
                 </th>
                 <th>
-                    UC
+                    UC à faire
                 </th>
-                <th>
-                    EDIT DELETE
-                </th>
+
             </thead>
             <tbody>
                 <tr *ngFor="let user of users">
@@ -42,9 +40,10 @@
                         {{user.nbHmini}}
                     </td>
                     <td>
+                        <a href="getEnseigneCours/{{user._id}}" class="btn btn-primary">Voir les cours</a>
                         <a href="edit-user/{{user._id}}" class ="btn btn-success">EDIT</a>
                          <button (click)="delUser(user)" class="btn btn-danger">DELETE</button> 
-                    
+                    </td>
                 </tr>
             </tbody>
         </table>

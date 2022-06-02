@@ -1,6 +1,6 @@
 <div class="row" style="margin-left:20px">
     <div class="col-md-12 text-center">
-        <h2>Liste d'enseignants</h2>
+        <h2>Bonjour</h2>
     </div>
     <div class="row">
         <table class="table">
@@ -20,31 +20,34 @@
                 <th>
                     UC à faire
                 </th>
+                <th>
+                    Somme des UCs actuels
+                </th>
 
             </thead>
             <tbody>
-                <tr *ngFor="let user of users">
+                <tr>
                     <td>
-                        {{user.identifiant}}
+                        {{addUser.identifiant}}
                     </td>
                     <td>
-                        {{user.nom}}
+                        {{addUser.nom}}
                     </td>
                     <td>
-                        {{user.prenom}}
+                        {{addUser.prenom}}
                     </td>
                     <td>
-                        {{user.statut}}
+                        {{addUser.statut}}
                     </td>
                     <td>
-                        {{user.nbHmini}}
+                        {{addUser.nbHmini}}
+                    </td>
+                    <td [ngStyle]="{color:getColor()}">
+                        {{sum}}
                     </td>
                     <td>
-                        <a href="oneUser/{{user._id}}" class="btn btn-primary">Voir l'enseignant</a>
                         <a href="getEnseigneCours/{{user._id}}" class="btn btn-primary">Voir les cours</a>
-                        <a *ngIf="userConnected.statut=='Admin'"  href="edit-user/{{user._id}}" class ="btn btn-success">EDIT</a>
-                         <button *ngIf="userConnected.statut=='Admin'" (click)="delUser(user)" class="btn btn-danger">DELETE</button> 
-                    </td>
+                        <a href="edit-user/{{user._id}}" class ="btn btn-success">EDIT</a>
                 </tr>
             </tbody>
         </table>

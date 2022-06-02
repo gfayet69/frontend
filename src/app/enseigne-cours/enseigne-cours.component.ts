@@ -12,6 +12,8 @@ import { UserService } from '../services/user.service';
 export class EnseigneCoursComponent implements OnInit {
 
   enseignes:any;
+  users:any;
+  userConnected:any;
   id:any;
   constructor(private enseigneService:EnseigneService,
     private userService:UserService,
@@ -23,21 +25,20 @@ export class EnseigneCoursComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.url.snapshot.params['id'];
     this.loadEnseigneByCours(this.id);
+    const userJson = localStorage.getItem('userConnected');
+    if(userJson)
+    {
+    this.userConnected = JSON.parse(userJson);
+    }
   }
 
   loadEnseigneByCours(id:any){
     this.enseigneService.listEnseigneByCours(id).subscribe((data:any)=>{
       console.log(data);
-      console.log(Object.keys(data));
-      data.forEach((elem:any) => {
-        this.userService.singleUser(elem.user).subscribe((data:any)=>{
-          console.log(elem.user)
-          console.log(data)
-          this.enseignes= data;
-        })
-      });
-  }) 
-}
+      this.users = data;
+    })
+  }
+
   delEnseigne(datas:any){
     this.enseigneService.deleteEnseigne(datas._id).subscribe(
       data => {

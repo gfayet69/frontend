@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="margin-left: 20px;">
     <div class="col-md-12 text-center">
         <h2>Liste d'enseignants</h2>
     </div>
@@ -9,32 +9,26 @@
                     User
                 </th>
                 <th>
-                    grCM
+                    Nom
                 </th>
                 <th>
-                    grTP
-                </th>
-                <th>
-                    grTD
+                    Prenom
                 </th>
             </thead>
             <tbody>
-                <tr *ngFor="let enseigne of enseignes">
+                <tr *ngFor="let user of users">
                     <td>
-                        {{enseigne.user.Identifiant}}
+                        {{user.identifiant}}
                     </td>
                     <td>
-                        {{enseigne.grCM}}
+                        {{user.nom}}
                     </td>
                     <td>
-                        {{enseigne.grTP}}
+                        {{user.prenom}}
                     </td>
                     <td>
-                        {{enseigne.grTD}}
-                    </td>
-                    <td>
-                    <a href="edit-user/{{enseigne._id}}" class ="btn btn-success">EDIT</a>
-                    <button (click)="delEnseigne(enseigne)" class="btn btn-danger">DELETE</button> 
+                    <a *ngIf="userConnected.statut=='Admin'" href="edit-enseigne/{{user._id}}" class ="btn btn-success">EDIT</a>
+                    <button *ngIf="userConnected.statut=='Admin'" (click)="delEnseigne(users)" class="btn btn-danger">DELETE</button> 
                     </td>
                 </tr>
             </tbody>

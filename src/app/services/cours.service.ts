@@ -12,4 +12,7 @@ export class CoursService {
   listCours(){
     return this.http.get('http://localhost:3000/api/cours/');
   }
+  singleCours(id:any){
+    return this.http.get('http://localhost:3000/api/cours/id/'+id);
+  }
 }

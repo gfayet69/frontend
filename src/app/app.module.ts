@@ -12,6 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListCoursComponent } from './list-cours/list-cours.component';
 import { EnseigneUserComponent } from './enseigne-user/enseigne-user.component';
 import { EnseigneCoursComponent } from './enseigne-cours/enseigne-cours.component';
+import { NavComponent } from './nav/nav.component';
+import { HomeComponent } from './home/home.component';
+import { EditEnseigneComponent } from './edit-enseigne/edit-enseigne.component';
+import { OneUserComponent } from './one-user/one-user.component';
+import { GetCoursComponent } from './get-cours/get-cours.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +27,12 @@ import { EnseigneCoursComponent } from './enseigne-cours/enseigne-cours.componen
     AuthentificationComponent,
     ListCoursComponent,
     EnseigneUserComponent,
-    EnseigneCoursComponent
+    EnseigneCoursComponent,
+    NavComponent,
+    HomeComponent,
+    EditEnseigneComponent,
+    OneUserComponent,
+    GetCoursComponent,
   ],
   imports: [
     BrowserModule,

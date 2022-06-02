@@ -10,6 +10,7 @@ import { EnseigneService } from '../services/enseigne.service';
 })
 export class EnseigneUserComponent implements OnInit {
   enseignes:any;
+  user:any;
   id:any;
   constructor(private enseigneService:EnseigneService,
     private routes:Router,
@@ -20,6 +21,11 @@ export class EnseigneUserComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.url.snapshot.params['id'];
     this.loadEnseigneByUser(this.id);
+    const userJson = localStorage.getItem('userConnected');
+    if(userJson)
+    {
+    this.user = JSON.parse(userJson);
+    }
   }
 
   loadEnseigneByUser(id:any){

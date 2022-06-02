@@ -11,6 +11,7 @@ import { UserService } from '../services/user.service';
 export class EditUserComponent implements OnInit {
 
   addUser:any
+  user:any;
   id:any
 
   constructor(private fb : FormBuilder,
@@ -33,6 +34,15 @@ export class EditUserComponent implements OnInit {
     this.userService.singleUser(this.id).subscribe(data=>{
       this.addUser.patchValue(data);
     })
+    const userJson = localStorage.getItem('userConnected');
+    if(userJson)
+    {
+    this.user = JSON.parse(userJson);
+    }
+    else
+    {
+      this.routes.navigate(['/login']);
+    }
   }
   
   onSubmit(){
